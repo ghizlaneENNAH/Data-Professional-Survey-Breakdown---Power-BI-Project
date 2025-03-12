@@ -17,4 +17,4 @@ This repository contains a Power BI project analyzing data from a professional s
 2. Follow `steps.txt` to clean and transform the data.
 3. Use `Data Professional Survey Breakdown_Power BI - Final Project.pbix` to explore visualizations.
 
-Happy analyzing! 🚀
+
