@@ -1,0 +1,87 @@
+# Data Cleaning
+
+1. **Transform the Data**
+   - Remove unnecessary columns: Browser, OS, City, Country, Referrer.
+
+2. **Split Columns**
+   - In the **"Q1 - Which Title Best Fits your Current Role?"** column:
+     - Click "Split Column" → By Delimiter → Custom `(`, Choose "Leftmost delimiter".
+   - Repeat the same process for the **Q5** column.
+   - Delete **"Q5 - Favorite Programming Language.2"** after splitting.
+
+3. **Cleaning Salary Data**
+   - Duplicate **"Q3 - Current Yearly Salary (in USD)"** column.
+   - Select the duplicated column, split it → Digits from non-digits.
+   - Remove the additional column containing "k".
+   - Replace `k` and `-` with nothing in the last column.
+   - Replace `+` in salary values with `225`.
+
+4. **Calculate Average Salary**
+   - Add a new **Custom Column** named **"Average Salary"** with the formula:
+     ```
+     [#"Q3 - Current Yearly Salary (in USD) - Copier.1"] + [#"Q3 - Current Yearly Salary (in USD) - Copier.2"] / 2
+     ```
+   - If an error occurs, **change the column type to Number** and redo the calculation.
+   - Remove unnecessary columns.
+
+5. **Standardizing Country Data**
+   - For the **Country column**, isolate the "Other" option separately using the `(` delimiter.
+   - Apply the same cleaning process to other similar columns.
+   - Delete unnecessary columns after splitting.
+
+---
+
+# Data Visualization
+
+1. **Create Dashboard Title**
+   - Add a **title**: **"Data Professional Survey Breakdown"**.
+
+2. **Key Metrics (Cards)**
+   - **Count of Survey Takers:** 
+     - Select `Unique ID` → Right-click → "Count Distinct" → Rename to "Count of Survey Takers".
+   - **Average Age:**
+     - Select `Age` → Use **Card Visualization** → Rename to "Average Age of Survey Takers".
+
+3. **Salary Analysis by Job Title**
+   - **Create a Clustered Bar Chart**:
+     - Use `Job Title` on **Y-axis**.
+     - Use `Average Salary` on **X-axis**.
+     - Convert **Average Salary** to **Decimal** (Change from text format).
+     - In the visual, change **Salary aggregation** to **Average** (Right-click Y-axis).
+     - Choose a clear chart type, rename it to **"Average Salary by Job Title"**.
+     - Rename **Y-axis**: "Job Title".
+     - Rename **X-axis**: "Average Salary".
+
+4. **Most Used Programming Languages**
+   - Select `Favorite Programming Language` and `Unique ID`.
+   - Use **Clustered Column Chart**.
+   - Set:
+     - **X-axis** → "Count of Voters".
+     - **Y-axis** → "Favorite Programming Language".
+   - Change title to **"Favorite Programming Language"**.
+
+5. **Country Representation**
+   - Use a **Treemap**.
+   - Drag **Country** column into **Category** and **Values**.
+   - Right-click → "Distinct Count".
+   - Rename visualization to **"Country of Survey Takers"**.
+
+6. **Happiness Analysis**
+   - **Work-Life Balance Happiness Gauge**
+     - Select `Q6 - Happiness with Work-Life Balance`.
+     - Use **Gauge Visualization**.
+     - Change aggregation to **Average**.
+     - Adjust min/max based on `Q6` values.
+     - Rename it to **"Happiness with Work-Life Balance"**.
+   - **Salary Happiness Gauge**
+     - Repeat the same steps for `Q6 - Happiness with Salary`.
+     - Rename it to **"Happiness with Salary"**.
+
+7. **Gender-Based Salary Analysis**
+   - Use **Donut Chart**.
+   - Select `Male/Female` and `Average Salary`.
+   - Ensure **Average Salary** is set to **Average** (bottom right settings).
+
+---
+
+✅ **Your Power BI dashboard is now ready!**
